@@ -59,6 +59,7 @@ public class Shen_LinkedList {
         if (choice == 1) {
             System.out.println("What is the character's name?");
             String name = scan.nextLine();
+            name = scan.nextLine();
             System.out.println("What is the character's species?");
             String spec = scan.nextLine();
             System.out.println("What is the character's ability?");
@@ -82,6 +83,7 @@ public class Shen_LinkedList {
         } else {
             play = false;
         }
+        Thread.sleep(2000);
         for (int i = 0; i < 100; i++) {
             System.out.println("");
         }
