@@ -1,29 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***********************************************************************
+* Program Filename: Shen_LinkedList.java
+* Author: Shen, Xiangyu
+* Date: 12/5/16
+* Description: Creates Linked List that user can interact with
+* Input: Keyboard
+* Output: Console
+***********************************************************************/
 package shen_linkedlist;
 
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author ShadowX
- */
 public class Shen_LinkedList {
 
     /**
      * @param args the command line arguments
      */
     
+    //scanner for input
     static Scanner scan = new Scanner(System.in);
+    //play variable to continue
     static boolean play = true;
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        /*New List and items to add to list*/
         MyList list = new MyList();
         LinkedItem e1 = new LinkedItem("Wheezard", "Hooman", "Cough", 100, null);
         LinkedItem e2 = new LinkedItem("Superhero", "Superhooman", "Be Super", 10, null);
@@ -36,6 +37,7 @@ public class Shen_LinkedList {
         list.addLast(e4);
         list.addLast(e5);
         
+        //ASk user what to do while keep playing
         while (play) {
             try {
                 choose(list);
@@ -45,7 +47,15 @@ public class Shen_LinkedList {
         }
     }
     
+/***********************************************************************
+* Method: choose
+* Description: asks user what to do and calls appropriate method
+* Parameters: MyList list
+* Pre-conditions: called to get user choice, list to act on
+* Post-conditions: user requests done
+***********************************************************************/
     static void choose(MyList list) throws InterruptedException {
+        //Prints out list and options to choose
         System.out.println("This is your LinkedList:");
         Thread.sleep(1000);
         list.listAllUser();
@@ -55,8 +65,11 @@ public class Shen_LinkedList {
         System.out.println("2) Remove a character from the beginning");
         System.out.println("3) Remove the last character");
         System.out.println("4) Quit");
+        
         int choice = scan.nextInt();
+        
         if (choice == 1) {
+            /*gets all stats for new item to create*/
             System.out.println("What is the character's name?");
             String name = scan.nextLine();
             name = scan.nextLine();
@@ -66,6 +79,7 @@ public class Shen_LinkedList {
             String abil = scan.nextLine();
             System.out.println("What is the character's strength rating?");
             int str = scan.nextInt();
+            /*Creates and adds item to List*/
             System.out.println("Creating character...");
             Thread.sleep(500);
             System.out.println("Adding character to list...");
@@ -74,16 +88,19 @@ public class Shen_LinkedList {
             LinkedItem e = new LinkedItem(name, spec, abil, str, null);
             list.addFirst(e);
         } else if (choice == 2) {
+            //Removes item
             System.out.println("Removing first item...");
-            Thread.sleep(500);
             list.removeFirst();
         } else if (choice == 3) {
+            //removes item
             System.out.println("Removing last item...");
             list.removeLast();
         } else {
+            //ends loop
             play = false;
         }
         Thread.sleep(2000);
+        //prints 100 lines
         for (int i = 0; i < 100; i++) {
             System.out.println("");
         }

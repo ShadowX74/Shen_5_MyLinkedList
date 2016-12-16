@@ -1,20 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***********************************************************************
+* Program Filename: LinkeItem.java
+* Author: Shen, Xiangyu
+* Date: 12/5/16
+* Description: Creates Linked Item for list
+* Input: Keyboard, parameters where called
+* Output: Console, to where called
+***********************************************************************/
 package shen_linkedlist;
 
-/**
- *
- * @author ShadowX
- */
 public class LinkedItem {
 
+    /*Stats of character*/
     String name, species, ability;
     int str;
     LinkedItem tail;
-
+    
     LinkedItem(String name, String species, String ability, int str, LinkedItem next) {
         this.name = name;
         this.species = species;
@@ -22,7 +22,14 @@ public class LinkedItem {
         this.str = str;
         this.tail = next;
     }
-
+    
+/***********************************************************************
+* Method: toString
+* Description: prints variables of item
+* Parameters: N/A
+* Pre-conditions: called for an item
+* Post-conditions: stats printed
+***********************************************************************/
     @Override
     public String toString() {
         if (tail != null) {
@@ -32,19 +39,18 @@ public class LinkedItem {
         }
     }
     
+/***********************************************************************
+* Method: toStringUser
+* Description: prints variables of ite
+* Parameters: N/A
+* Pre-conditions: called for an item
+* Post-conditions: stats printed
+***********************************************************************/
     public String toStringUser() {
         if (tail != null) {
             return "Character [" + "Name: " + name + ", Species: " + species + ", Ability: " + ability + ", Strength: " + str + ']';
         } else {
             return "Character [" + "Name: " + name + ", Species: " + species + ", Ability: " + ability + ", Strength: " + str + ']';
         }
-    }
-    
-    public LinkedItem getTail() {
-        return tail;
-    }
-
-    public void setTail(LinkedItem next) {
-        this.tail = next;
     }
 }
